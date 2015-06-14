@@ -35,4 +35,5 @@ compare/bower_components/**/.*
 bitmaps_test
 bitmaps_reference
 compare/config.json
+compare/results.xml
 capture/config.json
