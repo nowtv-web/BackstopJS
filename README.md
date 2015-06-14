@@ -86,17 +86,6 @@ This will create the folder structure `./node_modules/backstopjs`.
     $ casperjs --version
     > 1.1.0-beta3
 
-**If you don't already have canvas installed...**
-
-Follow platform specific instructions: https://github.com/Automattic/node-canvas/wiki/Installation---Ubuntu-and-other-Debian-based-systems
-
-OR use:
-
-   $ npm install --production
-
-So node-resemble (for creating xunit reports) isn't required
-
-
 ###Note for windows installation
 
 Windows users who have trouble getting BackstopJS to run (e.g. Error: spawn ENOENT) may want to look at [ENOENT error #2](https://github.com/garris/BackstopJS/issues/2). Also, please check that PhantomJS, CasperJS and Python are installed and added to your console PATH.
@@ -194,8 +183,6 @@ Once the test bitmaps are generated, a report comparing the most recent test bit
     $ gulp junit
 
 This will take the results of gulp test and save them to an xml file: `compare/results.xml`.
-
-It requires canvas to be installed, which requires various other dependencies. More information [here](https://github.com/Automattic/node-canvas/wiki).
 
 ### testing SPAs and AJAX content
 

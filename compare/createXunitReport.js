@@ -1,7 +1,7 @@
 (function () {
     var fs = require('fs'),
         async = require('async'),
-        resemble = require('node-resemble'),
+        resemble = require('node-resemble-js'),
         builder = require('xmlbuilder'),
         testPairs = [],
         testsFailed = 0,
@@ -25,7 +25,6 @@
 
             resemble(this.a.src).compareTo(this.b.src).onComplete(function (diffData) {
                 self.report = diffData;
-                self.c.src = diffData.getImageDataUrl();
                 self.mismatchImage = !(diffData.misMatchPercentage < self.meta.misMatchThreshold);
                 self.passed = diffData.isSameDimensions && diffData.misMatchPercentage < self.meta.misMatchThreshold;
 
@@ -97,7 +96,7 @@
                 xmlObj.att('tests', testPairs.length);
                 xmlObj.att('failures', testsFailed);
                 xmlObj.att('time', getTimeDifference(startTime));
-                fs.writeFileSync('results.xml', xmlObj.end({pretty: true}))
+                fs.writeFileSync(__dirname + '/results.xml', xmlObj.end({pretty: true}))
             }
         );
     }
@@ -105,7 +104,7 @@
     configFile = JSON.parse(fs.readFileSync(__dirname + '/config.json'));
 
     configFile.testPairs.forEach(function (testPair) {
-        testPairs.push(new TestPairObj('../' + testPair.reference, '../' + testPair.test, testPair));
+        testPairs.push(new TestPairObj(__dirname+ '/../' + testPair.reference, __dirname+'/../' + testPair.test, testPair));
     });
 
     compareTestPairs();
