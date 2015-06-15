@@ -19,14 +19,12 @@ BackstopJS brochure at [http://BackstopJS.org/](http://garris.github.io/Backstop
 
 Many many thanks to [all the contributors](https://github.com/garris/BackstopJS/graphs/contributors) with special thanks to [Lewis Nyman](https://github.com/lewisnyman) and [Stoutie](https://github.com/jehoshua02) for their help with 0.4.0 release!
 
-
 ##Heres how it works:
 
 1. Set up a test config file: specify screen sizes and DOM selectors.
 2. Use BackstopJS to create reference screenshots.
 3. Make some changes to your CSS or add new DOM components.
 4. Run a test. BackstopJS creates a set of *test* screenshots and any changes show up in a nice report.
-
 
 ##Backstory:
 BackstopJS is basically a wrapper around the very fabulous [Resemble.js](https://github.com/Huddle/Resemble.js) component written by [James Cryer](https://github.com/jamescryer). Other implementations of Resemble.js, namely [PhantomCSS](https://github.com/Huddle/PhantomCSS) require writing long form [CasperJS](http://casperjs.org) tests. This is of course great for testing complex UI interactions – but kind of cumbersome for more simple applications like static CMS templates or other higher level sanity testing.
@@ -89,6 +87,14 @@ This will create the folder structure `./node_modules/backstopjs`.
 **If you don't already have canvas installed...**
 
 Follow platform specific instructions: https://github.com/Automattic/node-canvas/wiki/Installation---Ubuntu-and-other-Debian-based-systems
+
+On OS X, for example, you need some extra bits from Homebrew:
+
+   $ brew install cairo
+   $ brew install pkg-config
+   $ export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
+
+... then npm install as normal
 
 OR use:
 
